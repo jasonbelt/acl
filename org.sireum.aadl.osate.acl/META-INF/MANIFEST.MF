@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.sireum.aadl.osate.acl
+Bundle-ManifestVersion: 2
+Bundle-Name: org.sireum.aadl.osate.acl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.sireum.aadl.osate.acl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.xtext.generator;bundle-version="2.20.0",
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.osate.aadl2;bundle-version="4.0.2",
+ org.osate.xtext.aadl2;bundle-version="6.0.0",
+ org.osate.xtext.aadl2.properties;bundle-version="3.0.1",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ org.osate.annexsupport;bundle-version="3.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.sireum.aadl.osate.acl,
+ org.sireum.aadl.osate.acl.serializer,
+ org.sireum.aadl.osate.acl.parser.antlr.internal,
+ org.sireum.aadl.osate.acl.aCL,
+ org.sireum.aadl.osate.acl.validation,
+ org.sireum.aadl.osate.acl.parser.antlr,
+ org.sireum.aadl.osate.acl.aCL.util,
+ org.sireum.aadl.osate.acl.scoping,
+ org.sireum.aadl.osate.acl.services,
+ org.sireum.aadl.osate.acl.generator,
+ org.sireum.aadl.osate.acl.aCL.impl,
+ org.sireum.aadl.osate.acl.parser.antlr.lexer
+Import-Package: org.apache.log4j

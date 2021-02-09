@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="aCL" nsURI="http://www.sireum.org/aadl/osate/acl/ACL" nsPrefix="aCL">
+  <eClassifiers xsi:type="ecore:EClass" name="AclSubclause" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexSubclause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contract" eType="#//Contract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contract"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecSection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComputationalModel" eSuperTypes="#//SpecSection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Flows" eSuperTypes="#//SpecSection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Contracts" eSuperTypes="#//SpecSection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AclContract" eSuperTypes="#//Contract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specs" upperBound="-1"
+        eType="#//SpecSection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PeriodicComputationalModel" eSuperTypes="#//ComputationalModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HyperperiodComputationalModel" eSuperTypes="#//ComputationalModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationships" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

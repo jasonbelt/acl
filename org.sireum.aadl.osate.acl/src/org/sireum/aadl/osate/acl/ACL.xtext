@@ -1,0 +1,38 @@
+grammar org.sireum.aadl.osate.acl.ACL with org.osate.xtext.aadl2.properties.Properties
+
+generate aCL "http://www.sireum.org/aadl/osate/acl/ACL"
+
+import "http://aadl.info/AADL/2.0" as aadl2
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+AnnexSubclause returns aadl2::AnnexSubclause:
+	AclSubclause;
+	
+AclSubclause:
+	{AclSubclause} contract=AclContract;
+
+AclContract returns Contract:
+	{AclContract} (specs+=SpecSection);
+
+SpecSection:
+	ComputationalModel
+|	Flows
+|	Contracts;
+
+ComputationalModel:
+	=> ({PeriodicComputationalModel} 'periodic')
+|	=> ({HyperperiodComputationalModel} 'hyperperiod' 'with' relationships=Expr)
+;
+
+Flows:
+	{Flows} 'flows'	
+;
+
+Contracts:
+	{Contracts} 'contracts'
+;
+
+Expr:
+	ID
+;
+	
