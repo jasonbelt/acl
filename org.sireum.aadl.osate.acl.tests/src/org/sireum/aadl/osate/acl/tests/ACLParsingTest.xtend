@@ -10,18 +10,22 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.sireum.aadl.osate.acl.aCL.Model
+import org.sireum.aadl.osate.acl.aCL.*;
 
 @RunWith(XtextRunner)
 @InjectWith(ACLInjectorProvider)
 class ACLParsingTest {
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<AclSubclause> parseHelper
 	
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+		    periodic
+		    
+		    flows
+		    
+		    contracts
 		''')
 		Assert.assertNotNull(result)
 		val errors = result.eResource.errors

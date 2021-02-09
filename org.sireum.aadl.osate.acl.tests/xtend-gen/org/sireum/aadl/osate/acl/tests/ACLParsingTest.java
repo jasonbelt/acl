@@ -4,11 +4,18 @@
 package org.sireum.aadl.osate.acl.tests;
 
 import com.google.inject.Inject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.sireum.aadl.osate.acl.aCL.AclSubclause;
 import org.sireum.aadl.osate.acl.tests.ACLInjectorProvider;
 
 @RunWith(XtextRunner.class)
@@ -16,15 +23,30 @@ import org.sireum.aadl.osate.acl.tests.ACLInjectorProvider;
 @SuppressWarnings("all")
 public class ACLParsingTest {
   @Inject
-  private /* ParseHelper<Model> */Object parseHelper;
+  private ParseHelper<AclSubclause> parseHelper;
   
   @Test
   public void loadModel() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe field ACLParsingTest.parseHelper refers to the missing type Model"
-      + "\neResource cannot be resolved"
-      + "\nerrors cannot be resolved"
-      + "\njoin cannot be resolved"
-      + "\nisEmpty cannot be resolved");
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("periodic");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("flows");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("contracts");
+      _builder.newLine();
+      final AclSubclause result = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }
