@@ -5,44 +5,108 @@ package org.sireum.aadl.osate.acl.formatting2;
 
 import com.google.inject.Inject;
 import java.util.Arrays;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.osate.aadl2.ArrayRange;
+import org.osate.aadl2.BasicPropertyAssociation;
+import org.osate.aadl2.ClassifierValue;
+import org.osate.aadl2.ComputedValue;
+import org.osate.aadl2.ContainmentPathElement;
+import org.osate.aadl2.IntegerLiteral;
+import org.osate.aadl2.ListValue;
+import org.osate.aadl2.ModalPropertyValue;
+import org.osate.aadl2.Operation;
+import org.osate.aadl2.RangeValue;
+import org.osate.aadl2.RealLiteral;
+import org.osate.aadl2.RecordValue;
+import org.osate.aadl2.ReferenceValue;
+import org.osate.xtext.aadl2.properties.formatting2.PropertiesFormatter;
+import org.sireum.aadl.osate.acl.aCL.AclContract;
+import org.sireum.aadl.osate.acl.aCL.AclSubclause;
+import org.sireum.aadl.osate.acl.aCL.SpecSection;
 import org.sireum.aadl.osate.acl.services.ACLGrammarAccess;
 
 @SuppressWarnings("all")
-public class ACLFormatter extends AbstractFormatter2 {
+public class ACLFormatter extends PropertiesFormatter {
   @Inject
   @Extension
   private ACLGrammarAccess _aCLGrammarAccess;
   
-  protected void _format(final /* AnnexSubclause */Object model, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nGreeting cannot be resolved to a type."
-      + "\ngetGreetings cannot be resolved");
+  protected void _format(final AclSubclause aclsubclause, @Extension final IFormattableDocument document) {
+    this.format(aclsubclause.getContract(), document);
   }
   
-  public void format(final Object model, final IFormattableDocument document) {
-    if (model instanceof XtextResource) {
-      _format((XtextResource)model, document);
+  protected void _format(final AclContract aclcontract, @Extension final IFormattableDocument document) {
+    EList<SpecSection> _specs = aclcontract.getSpecs();
+    for (final SpecSection specs : _specs) {
+      this.format(specs, document);
+    }
+  }
+  
+  public void format(final Object aclsubclause, final IFormattableDocument document) {
+    if (aclsubclause instanceof IntegerLiteral) {
+      _format((IntegerLiteral)aclsubclause, document);
       return;
-    } else if (model instanceof EObject) {
-      _format((EObject)model, document);
+    } else if (aclsubclause instanceof RealLiteral) {
+      _format((RealLiteral)aclsubclause, document);
       return;
-    } else if (model == null) {
+    } else if (aclsubclause instanceof AclSubclause) {
+      _format((AclSubclause)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof ClassifierValue) {
+      _format((ClassifierValue)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof ComputedValue) {
+      _format((ComputedValue)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof ModalPropertyValue) {
+      _format((ModalPropertyValue)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof RangeValue) {
+      _format((RangeValue)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof RecordValue) {
+      _format((RecordValue)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof ReferenceValue) {
+      _format((ReferenceValue)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof ListValue) {
+      _format((ListValue)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof Operation) {
+      _format((Operation)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof XtextResource) {
+      _format((XtextResource)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof ArrayRange) {
+      _format((ArrayRange)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof BasicPropertyAssociation) {
+      _format((BasicPropertyAssociation)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof ContainmentPathElement) {
+      _format((ContainmentPathElement)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof AclContract) {
+      _format((AclContract)aclsubclause, document);
+      return;
+    } else if (aclsubclause instanceof EObject) {
+      _format((EObject)aclsubclause, document);
+      return;
+    } else if (aclsubclause == null) {
       _format((Void)null, document);
       return;
-    } else if (model != null) {
-      _format(model, document);
-      return;
-    } else if (model != null) {
-      _format(model, document);
+    } else if (aclsubclause != null) {
+      _format(aclsubclause, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(model, document).toString());
+        Arrays.<Object>asList(aclsubclause, document).toString());
     }
   }
 }
