@@ -1,3 +1,5 @@
 **/bin/
 **/test-bin/
 **/.cache
+**_trace
+**xtendbin
