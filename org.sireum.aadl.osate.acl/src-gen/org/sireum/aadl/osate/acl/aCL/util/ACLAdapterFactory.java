@@ -86,9 +86,9 @@ public class ACLAdapterFactory extends AdapterFactoryImpl
         return createAclSubclauseAdapter();
       }
       @Override
-      public Adapter caseContract(Contract object)
+      public Adapter caseAclContract(AclContract object)
       {
-        return createContractAdapter();
+        return createAclContractAdapter();
       }
       @Override
       public Adapter caseSpecSection(SpecSection object)
@@ -106,14 +106,24 @@ public class ACLAdapterFactory extends AdapterFactoryImpl
         return createFlowsAdapter();
       }
       @Override
-      public Adapter caseContracts(Contracts object)
+      public Adapter caseFlow(Flow object)
       {
-        return createContractsAdapter();
+        return createFlowAdapter();
       }
       @Override
-      public Adapter caseAclContract(AclContract object)
+      public Adapter caseContract(Contract object)
       {
-        return createAclContractAdapter();
+        return createContractAdapter();
+      }
+      @Override
+      public Adapter caseSpecStatement(SpecStatement object)
+      {
+        return createSpecStatementAdapter();
+      }
+      @Override
+      public Adapter caseExpr(Expr object)
+      {
+        return createExprAdapter();
       }
       @Override
       public Adapter casePeriodicComputationalModel(PeriodicComputationalModel object)
@@ -124,6 +134,31 @@ public class ACLAdapterFactory extends AdapterFactoryImpl
       public Adapter caseHyperperiodComputationalModel(HyperperiodComputationalModel object)
       {
         return createHyperperiodComputationalModelAdapter();
+      }
+      @Override
+      public Adapter caseAssumeStatement(AssumeStatement object)
+      {
+        return createAssumeStatementAdapter();
+      }
+      @Override
+      public Adapter caseGuaranteeStatement(GuaranteeStatement object)
+      {
+        return createGuaranteeStatementAdapter();
+      }
+      @Override
+      public Adapter caseBinaryExpr(BinaryExpr object)
+      {
+        return createBinaryExprAdapter();
+      }
+      @Override
+      public Adapter caseUnaryExpr(UnaryExpr object)
+      {
+        return createUnaryExprAdapter();
+      }
+      @Override
+      public Adapter caseIdExpr(IdExpr object)
+      {
+        return createIdExprAdapter();
       }
       @Override
       public Adapter caseElement(Element object)
@@ -183,16 +218,16 @@ public class ACLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.Contract <em>Contract</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.AclContract <em>Acl Contract</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.osate.acl.aCL.Contract
+   * @see org.sireum.aadl.osate.acl.aCL.AclContract
    * @generated
    */
-  public Adapter createContractAdapter()
+  public Adapter createAclContractAdapter()
   {
     return null;
   }
@@ -243,31 +278,61 @@ public class ACLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.Contracts <em>Contracts</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.Flow <em>Flow</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.osate.acl.aCL.Contracts
+   * @see org.sireum.aadl.osate.acl.aCL.Flow
    * @generated
    */
-  public Adapter createContractsAdapter()
+  public Adapter createFlowAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.AclContract <em>Acl Contract</em>}'.
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.Contract <em>Contract</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.sireum.aadl.osate.acl.aCL.AclContract
+   * @see org.sireum.aadl.osate.acl.aCL.Contract
    * @generated
    */
-  public Adapter createAclContractAdapter()
+  public Adapter createContractAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.SpecStatement <em>Spec Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.osate.acl.aCL.SpecStatement
+   * @generated
+   */
+  public Adapter createSpecStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.Expr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.osate.acl.aCL.Expr
+   * @generated
+   */
+  public Adapter createExprAdapter()
   {
     return null;
   }
@@ -298,6 +363,81 @@ public class ACLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createHyperperiodComputationalModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.AssumeStatement <em>Assume Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.osate.acl.aCL.AssumeStatement
+   * @generated
+   */
+  public Adapter createAssumeStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.GuaranteeStatement <em>Guarantee Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.osate.acl.aCL.GuaranteeStatement
+   * @generated
+   */
+  public Adapter createGuaranteeStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.BinaryExpr <em>Binary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.osate.acl.aCL.BinaryExpr
+   * @generated
+   */
+  public Adapter createBinaryExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.UnaryExpr <em>Unary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.osate.acl.aCL.UnaryExpr
+   * @generated
+   */
+  public Adapter createUnaryExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.sireum.aadl.osate.acl.aCL.IdExpr <em>Id Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.sireum.aadl.osate.acl.aCL.IdExpr
+   * @generated
+   */
+  public Adapter createIdExprAdapter()
   {
     return null;
   }

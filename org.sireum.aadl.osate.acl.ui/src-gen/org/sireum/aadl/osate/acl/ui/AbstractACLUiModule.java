@@ -102,7 +102,7 @@ public abstract class AbstractACLUiModule extends org.eclipse.xtext.ui.DefaultUi
 		return org.sireum.aadl.osate.acl.ui.quickfix.ACLQuickfixProvider.class;
 	}
 
-	// contributed by org.eclipse.xtext.ui.generator.contentAssist.ContentAssistFragment
+	// contributed by org.eclipse.xtext.ui.generator.contentAssist.JavaBasedContentAssistFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.IContentProposalProvider> bindIContentProposalProvider() {
 		return org.sireum.aadl.osate.acl.ui.contentassist.ACLProposalProvider.class;
 	}

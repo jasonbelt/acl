@@ -5,6 +5,8 @@ package org.sireum.aadl.osate.acl.aCL;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Acl Contract</b></em>'.
@@ -21,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface AclContract extends Contract
+public interface AclContract extends EObject
 {
   /**
    * Returns the value of the '<em><b>Specs</b></em>' containment reference list.

@@ -3,18 +3,36 @@
  */
 package org.sireum.aadl.osate.acl.aCL;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Contract</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.sireum.aadl.osate.acl.aCL.Contract#getSpecs <em>Specs</em>}</li>
+ * </ul>
  *
  * @see org.sireum.aadl.osate.acl.aCL.ACLPackage#getContract()
  * @model
  * @generated
  */
-public interface Contract extends EObject
+public interface Contract extends SpecSection
 {
+  /**
+   * Returns the value of the '<em><b>Specs</b></em>' containment reference list.
+   * The list contents are of type {@link org.sireum.aadl.osate.acl.aCL.SpecStatement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Specs</em>' containment reference list.
+   * @see org.sireum.aadl.osate.acl.aCL.ACLPackage#getContract_Specs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<SpecStatement> getSpecs();
+
 } // Contract

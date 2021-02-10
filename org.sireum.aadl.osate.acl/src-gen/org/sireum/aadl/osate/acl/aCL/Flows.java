@@ -3,12 +3,19 @@
  */
 package org.sireum.aadl.osate.acl.aCL;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Flows</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.sireum.aadl.osate.acl.aCL.Flows#getFlows <em>Flows</em>}</li>
+ * </ul>
  *
  * @see org.sireum.aadl.osate.acl.aCL.ACLPackage#getFlows()
  * @model
@@ -16,4 +23,16 @@ package org.sireum.aadl.osate.acl.aCL;
  */
 public interface Flows extends SpecSection
 {
+  /**
+   * Returns the value of the '<em><b>Flows</b></em>' containment reference list.
+   * The list contents are of type {@link org.sireum.aadl.osate.acl.aCL.Flow}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Flows</em>' containment reference list.
+   * @see org.sireum.aadl.osate.acl.aCL.ACLPackage#getFlows_Flows()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Flow> getFlows();
+
 } // Flows

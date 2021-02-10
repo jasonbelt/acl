@@ -33,13 +33,13 @@ public interface ACLFactory extends EFactory
   AclSubclause createAclSubclause();
 
   /**
-   * Returns a new object of class '<em>Contract</em>'.
+   * Returns a new object of class '<em>Acl Contract</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Contract</em>'.
+   * @return a new object of class '<em>Acl Contract</em>'.
    * @generated
    */
-  Contract createContract();
+  AclContract createAclContract();
 
   /**
    * Returns a new object of class '<em>Spec Section</em>'.
@@ -69,22 +69,40 @@ public interface ACLFactory extends EFactory
   Flows createFlows();
 
   /**
-   * Returns a new object of class '<em>Contracts</em>'.
+   * Returns a new object of class '<em>Flow</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Contracts</em>'.
+   * @return a new object of class '<em>Flow</em>'.
    * @generated
    */
-  Contracts createContracts();
+  Flow createFlow();
 
   /**
-   * Returns a new object of class '<em>Acl Contract</em>'.
+   * Returns a new object of class '<em>Contract</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Acl Contract</em>'.
+   * @return a new object of class '<em>Contract</em>'.
    * @generated
    */
-  AclContract createAclContract();
+  Contract createContract();
+
+  /**
+   * Returns a new object of class '<em>Spec Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Spec Statement</em>'.
+   * @generated
+   */
+  SpecStatement createSpecStatement();
+
+  /**
+   * Returns a new object of class '<em>Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr</em>'.
+   * @generated
+   */
+  Expr createExpr();
 
   /**
    * Returns a new object of class '<em>Periodic Computational Model</em>'.
@@ -103,6 +121,51 @@ public interface ACLFactory extends EFactory
    * @generated
    */
   HyperperiodComputationalModel createHyperperiodComputationalModel();
+
+  /**
+   * Returns a new object of class '<em>Assume Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assume Statement</em>'.
+   * @generated
+   */
+  AssumeStatement createAssumeStatement();
+
+  /**
+   * Returns a new object of class '<em>Guarantee Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Guarantee Statement</em>'.
+   * @generated
+   */
+  GuaranteeStatement createGuaranteeStatement();
+
+  /**
+   * Returns a new object of class '<em>Binary Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binary Expr</em>'.
+   * @generated
+   */
+  BinaryExpr createBinaryExpr();
+
+  /**
+   * Returns a new object of class '<em>Unary Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Expr</em>'.
+   * @generated
+   */
+  UnaryExpr createUnaryExpr();
+
+  /**
+   * Returns a new object of class '<em>Id Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Id Expr</em>'.
+   * @generated
+   */
+  IdExpr createIdExpr();
 
   /**
    * Returns the package supported by this factory.

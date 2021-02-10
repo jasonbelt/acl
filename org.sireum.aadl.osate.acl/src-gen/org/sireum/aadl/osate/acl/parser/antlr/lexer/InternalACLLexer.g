@@ -22,17 +22,31 @@ Classifier : ('C'|'c')('L'|'l')('A'|'a')('S'|'s')('S'|'s')('I'|'i')('F'|'f')('I'
 
 Contracts : ('C'|'c')('O'|'o')('N'|'n')('T'|'t')('R'|'r')('A'|'a')('C'|'c')('T'|'t')('S'|'s');
 
+Guarantee : ('G'|'g')('U'|'u')('A'|'a')('R'|'r')('A'|'a')('N'|'n')('T'|'t')('E'|'e')('E'|'e');
+
 Reference : ('R'|'r')('E'|'e')('F'|'f')('E'|'e')('R'|'r')('E'|'e')('N'|'n')('C'|'c')('E'|'e');
 
 Constant : ('C'|'c')('O'|'o')('N'|'n')('S'|'s')('T'|'t')('A'|'a')('N'|'n')('T'|'t');
 
 Periodic : ('P'|'p')('E'|'e')('R'|'r')('I'|'i')('O'|'o')('D'|'d')('I'|'i')('C'|'c');
 
+TracesTo : ('T'|'t')('R'|'r')('A'|'a')('C'|'c')('E'|'e')('S'|'s')('T'|'t')('O'|'o');
+
+Andthen : ('A'|'a')('N'|'n')('D'|'d')('T'|'t')('H'|'h')('E'|'e')('N'|'n');
+
 Applies : ('A'|'a')('P'|'p')('P'|'p')('L'|'l')('I'|'i')('E'|'e')('S'|'s');
 
 Binding : ('B'|'b')('I'|'i')('N'|'n')('D'|'d')('I'|'i')('N'|'n')('G'|'g');
 
 Compute : ('C'|'c')('O'|'o')('M'|'m')('P'|'p')('U'|'u')('T'|'t')('E'|'e');
+
+Implies : ('I'|'i')('M'|'m')('P'|'p')('L'|'l')('I'|'i')('E'|'e')('S'|'s');
+
+Fun : '-'('F'|'f')('U'|'u')('N'|'n')'-''>';
+
+Assume : ('A'|'a')('S'|'s')('S'|'s')('U'|'u')('M'|'m')('E'|'e');
+
+Orelse : ('O'|'o')('R'|'r')('E'|'e')('L'|'l')('S'|'s')('E'|'e');
 
 Delta : ('D'|'d')('E'|'e')('L'|'l')('T'|'t')('A'|'a');
 
@@ -48,15 +62,31 @@ With : ('W'|'w')('I'|'i')('T'|'t')('H'|'h');
 
 PlusSignEqualsSignGreaterThanSign : '+''=''>';
 
+And : ('A'|'a')('N'|'n')('D'|'d');
+
+For : ('F'|'f')('O'|'o')('R'|'r');
+
+Not : ('N'|'n')('O'|'o')('T'|'t');
+
 FullStopFullStop : '.''.';
 
 ColonColon : ':'':';
 
+LessThanSignEqualsSign : '<''=';
+
+LessThanSignGreaterThanSign : '<''>';
+
 EqualsSignGreaterThanSign : '=''>';
+
+GreaterThanSignEqualsSign : '>''=';
 
 In : ('I'|'i')('N'|'n');
 
+Or : ('O'|'o')('R'|'r');
+
 To : ('T'|'t')('O'|'o');
+
+PercentSign : '%';
 
 LeftParenthesis : '(';
 
@@ -72,11 +102,23 @@ HyphenMinus : '-';
 
 FullStop : '.';
 
+Solidus : '/';
+
+Colon : ':';
+
 Semicolon : ';';
+
+LessThanSign : '<';
+
+EqualsSign : '=';
+
+GreaterThanSign : '>';
 
 LeftSquareBracket : '[';
 
 RightSquareBracket : ']';
+
+CircumflexAccent : '^';
 
 LeftCurlyBracket : '{';
 

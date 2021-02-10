@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.osate.aadl2.impl.AnnexSubclauseImpl;
 
 import org.sireum.aadl.osate.acl.aCL.ACLPackage;
+import org.sireum.aadl.osate.acl.aCL.AclContract;
 import org.sireum.aadl.osate.acl.aCL.AclSubclause;
-import org.sireum.aadl.osate.acl.aCL.Contract;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +40,7 @@ public class AclSubclauseImpl extends AnnexSubclauseImpl implements AclSubclause
    * @generated
    * @ordered
    */
-  protected Contract contract;
+  protected AclContract contract;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public class AclSubclauseImpl extends AnnexSubclauseImpl implements AclSubclause
    * @generated
    */
   @Override
-  public Contract getContract()
+  public AclContract getContract()
   {
     return contract;
   }
@@ -79,9 +79,9 @@ public class AclSubclauseImpl extends AnnexSubclauseImpl implements AclSubclause
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetContract(Contract newContract, NotificationChain msgs)
+  public NotificationChain basicSetContract(AclContract newContract, NotificationChain msgs)
   {
-    Contract oldContract = contract;
+    AclContract oldContract = contract;
     contract = newContract;
     if (eNotificationRequired())
     {
@@ -97,7 +97,7 @@ public class AclSubclauseImpl extends AnnexSubclauseImpl implements AclSubclause
    * @generated
    */
   @Override
-  public void setContract(Contract newContract)
+  public void setContract(AclContract newContract)
   {
     if (newContract != contract)
     {
@@ -156,7 +156,7 @@ public class AclSubclauseImpl extends AnnexSubclauseImpl implements AclSubclause
     switch (featureID)
     {
       case ACLPackage.ACL_SUBCLAUSE__CONTRACT:
-        setContract((Contract)newValue);
+        setContract((AclContract)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -173,7 +173,7 @@ public class AclSubclauseImpl extends AnnexSubclauseImpl implements AclSubclause
     switch (featureID)
     {
       case ACLPackage.ACL_SUBCLAUSE__CONTRACT:
-        setContract((Contract)null);
+        setContract((AclContract)null);
         return;
     }
     super.eUnset(featureID);

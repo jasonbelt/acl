@@ -11,28 +11,86 @@ AnnexSubclause returns aadl2::AnnexSubclause:
 AclSubclause:
 	{AclSubclause} contract=AclContract;
 
-AclContract returns Contract:
-	{AclContract} (specs+=SpecSection);
+AclContract:
+	{AclContract} (specs+=SpecSection*);
 
 SpecSection:
 	ComputationalModel
 |	Flows
-|	Contracts;
+|	Contract;
 
 ComputationalModel:
-	({PeriodicComputationalModel} 'periodic')
-|	({HyperperiodComputationalModel} 'hyperperiod' 'with' relationships=Expr)
+	{PeriodicComputationalModel} 'periodic'
+|	{HyperperiodComputationalModel} 'hyperperiod' 'with' 
+		(constraints+=[aadl2::NamedElement] ('<' constraints+=[aadl2::NamedElement])* )
 ;
 
 Flows:
-	{Flows} 'flows'	
+	'flows' (flows+=Flow)+
 ;
 
-Contracts:
-	{Contracts} 'contracts'
+Flow:
+	=>	flowId=ID ':' 
+		srcPorts+=[aadl2::NamedElement] (',' srcPorts+=[aadl2::NamedElement])* '-fun->'
+		dstPorts+=[aadl2::NamedElement] (',' dstPorts+=[aadl2::NamedElement])* 
+;
+
+Contract:
+	'contracts' (specs+=SpecStatement)+
+;
+
+SpecStatement:
+	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])? 
+		assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?  
+|	{GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr
+;
+
+PREDICATE: // TODO 
+	ID
 ;
 
 Expr:
-	ID
+	ImpliesExpr
 ;
-	
+
+ImpliesExpr returns Expr:
+	OrExpr (=>({BinaryExpr.left=current} ('=>'|'implies')) right=ImpliesExpr)?
+;
+
+OrExpr returns Expr:
+	AndExpr (=>({BinaryExpr.left=current} (op='or'|op='orelse')) right=AndExpr)*
+;
+
+AndExpr returns Expr:
+	RelationalExpr (=>({BinaryExpr.left=current} (op='and'|op='andthen')) right=RelationalExpr)*
+;
+
+
+RelationalOp:
+	'<' | '<=' | '>' | '>=' | '=' | '<>'
+;
+ 
+RelationalExpr returns Expr:
+	PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+;
+
+PlusExpr returns Expr:
+	TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+;
+
+TimesExpr returns Expr:
+	ExpExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=ExpExpr)*	
+;
+
+ExpExpr returns Expr:
+	PrefixExpr (=>({BinaryExpr.left=current} op=('^')) right=PrefixExpr)*
+;
+
+PrefixExpr returns Expr:
+	{UnaryExpr} op=('-' | 'not') expr=PrefixExpr
+|	AtomicExpr
+;
+
+AtomicExpr returns Expr:
+	{IdExpr} id=[aadl2::NamedElement | QCREF]
+;

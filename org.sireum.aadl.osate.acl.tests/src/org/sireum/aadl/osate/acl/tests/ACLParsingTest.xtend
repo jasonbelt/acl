@@ -10,7 +10,7 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.sireum.aadl.osate.acl.aCL.*;
+import org.sireum.aadl.osate.acl.aCL.AclSubclause
 
 @RunWith(XtextRunner)
 @InjectWith(ACLInjectorProvider)
@@ -19,15 +19,46 @@ class ACLParsingTest {
 	ParseHelper<AclSubclause> parseHelper
 	
 	@Test
-	def void loadModel() {
+	def void loadPeriodic() {
 		val result = parseHelper.parse('''
 		    periodic
 		    
-		    flows
+		    flows 
+		    	flow1: a -fun-> d
+		    	flow2: a -fun-> e, f 
+		    	flow3: b, c -fun-> d
 		    
 		    contracts
+		    	assume for portA "everything" : TODO_predicates tracesTo <some_id>
+		    	assume "no 'for'" : TODO_predicates tracesTo <some_id>
+		    	assume "no tracesTo" : TODO_predicates
+		    	guarantee "a further title" : a or b and c implies d and c orelse e
 		''')
 		Assert.assertNotNull(result)
+		
+		val errors = result.eResource.errors
+		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
+	}
+	
+		@Test
+	def void loadHyperperiod() {
+		val result = parseHelper.parse('''
+		    hyperperiod 
+		      with p1 < p2
+		    
+		    flows 
+		    	flow1: a -fun-> d
+		    	flow2 : a -fun-> e, f 
+		    	flow3: b, c -fun-> d
+		    
+		    contracts
+		    	guarantee "a title": a => b
+		    	assume for portA "everything" : TODO_predicates tracesTo <some_id>
+		    	guarantee "another title" : a or b and c implies d
+		    	guarantee "a further title" : a or b and c implies d and c orelse e
+		''')
+		Assert.assertNotNull(result)
+		
 		val errors = result.eResource.errors
 		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 	}

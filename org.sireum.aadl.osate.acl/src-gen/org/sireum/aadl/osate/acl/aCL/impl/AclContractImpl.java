@@ -12,6 +12,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +34,7 @@ import org.sireum.aadl.osate.acl.aCL.SpecSection;
  *
  * @generated
  */
-public class AclContractImpl extends ContractImpl implements AclContract
+public class AclContractImpl extends MinimalEObjectImpl.Container implements AclContract
 {
   /**
    * The cached value of the '{@link #getSpecs() <em>Specs</em>}' containment reference list.

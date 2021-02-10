@@ -3,6 +3,9 @@
  */
 package org.sireum.aadl.osate.acl.aCL;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.osate.aadl2.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +16,7 @@ package org.sireum.aadl.osate.acl.aCL;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel#getRelationships <em>Relationships</em>}</li>
+ *   <li>{@link org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @see org.sireum.aadl.osate.acl.aCL.ACLPackage#getHyperperiodComputationalModel()
@@ -23,25 +26,15 @@ package org.sireum.aadl.osate.acl.aCL;
 public interface HyperperiodComputationalModel extends ComputationalModel
 {
   /**
-   * Returns the value of the '<em><b>Relationships</b></em>' attribute.
+   * Returns the value of the '<em><b>Constraints</b></em>' reference list.
+   * The list contents are of type {@link org.osate.aadl2.NamedElement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Relationships</em>' attribute.
-   * @see #setRelationships(String)
-   * @see org.sireum.aadl.osate.acl.aCL.ACLPackage#getHyperperiodComputationalModel_Relationships()
+   * @return the value of the '<em>Constraints</em>' reference list.
+   * @see org.sireum.aadl.osate.acl.aCL.ACLPackage#getHyperperiodComputationalModel_Constraints()
    * @model
    * @generated
    */
-  String getRelationships();
-
-  /**
-   * Sets the value of the '{@link org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel#getRelationships <em>Relationships</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Relationships</em>' attribute.
-   * @see #getRelationships()
-   * @generated
-   */
-  void setRelationships(String value);
+  EList<NamedElement> getConstraints();
 
 } // HyperperiodComputationalModel

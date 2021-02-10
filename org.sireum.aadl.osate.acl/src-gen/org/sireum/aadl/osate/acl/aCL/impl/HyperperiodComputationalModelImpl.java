@@ -3,11 +3,15 @@
  */
 package org.sireum.aadl.osate.acl.aCL.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import org.osate.aadl2.NamedElement;
 
 import org.sireum.aadl.osate.acl.aCL.ACLPackage;
 import org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel;
@@ -20,7 +24,7 @@ import org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.sireum.aadl.osate.acl.aCL.impl.HyperperiodComputationalModelImpl#getRelationships <em>Relationships</em>}</li>
+ *   <li>{@link org.sireum.aadl.osate.acl.aCL.impl.HyperperiodComputationalModelImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +32,14 @@ import org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel;
 public class HyperperiodComputationalModelImpl extends ComputationalModelImpl implements HyperperiodComputationalModel
 {
   /**
-   * The default value of the '{@link #getRelationships() <em>Relationships</em>}' attribute.
+   * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRelationships()
+   * @see #getConstraints()
    * @generated
    * @ordered
    */
-  protected static final String RELATIONSHIPS_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getRelationships() <em>Relationships</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRelationships()
-   * @generated
-   * @ordered
-   */
-  protected String relationships = RELATIONSHIPS_EDEFAULT;
+  protected EList<NamedElement> constraints;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,23 +68,13 @@ public class HyperperiodComputationalModelImpl extends ComputationalModelImpl im
    * @generated
    */
   @Override
-  public String getRelationships()
+  public EList<NamedElement> getConstraints()
   {
-    return relationships;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setRelationships(String newRelationships)
-  {
-    String oldRelationships = relationships;
-    relationships = newRelationships;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__RELATIONSHIPS, oldRelationships, relationships));
+    if (constraints == null)
+    {
+      constraints = new EObjectResolvingEList<NamedElement>(NamedElement.class, this, ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS);
+    }
+    return constraints;
   }
 
   /**
@@ -103,8 +87,8 @@ public class HyperperiodComputationalModelImpl extends ComputationalModelImpl im
   {
     switch (featureID)
     {
-      case ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__RELATIONSHIPS:
-        return getRelationships();
+      case ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS:
+        return getConstraints();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -114,13 +98,15 @@ public class HyperperiodComputationalModelImpl extends ComputationalModelImpl im
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__RELATIONSHIPS:
-        setRelationships((String)newValue);
+      case ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS:
+        getConstraints().clear();
+        getConstraints().addAll((Collection<? extends NamedElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +122,8 @@ public class HyperperiodComputationalModelImpl extends ComputationalModelImpl im
   {
     switch (featureID)
     {
-      case ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__RELATIONSHIPS:
-        setRelationships(RELATIONSHIPS_EDEFAULT);
+      case ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS:
+        getConstraints().clear();
         return;
     }
     super.eUnset(featureID);
@@ -153,27 +139,10 @@ public class HyperperiodComputationalModelImpl extends ComputationalModelImpl im
   {
     switch (featureID)
     {
-      case ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__RELATIONSHIPS:
-        return RELATIONSHIPS_EDEFAULT == null ? relationships != null : !RELATIONSHIPS_EDEFAULT.equals(relationships);
+      case ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS:
+        return constraints != null && !constraints.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (relationships: ");
-    result.append(relationships);
-    result.append(')');
-    return result.toString();
   }
 
 } //HyperperiodComputationalModelImpl

@@ -89,10 +89,10 @@ public class ACLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ACLPackage.CONTRACT:
+      case ACLPackage.ACL_CONTRACT:
       {
-        Contract contract = (Contract)theEObject;
-        T result = caseContract(contract);
+        AclContract aclContract = (AclContract)theEObject;
+        T result = caseAclContract(aclContract);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -119,19 +119,32 @@ public class ACLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ACLPackage.CONTRACTS:
+      case ACLPackage.FLOW:
       {
-        Contracts contracts = (Contracts)theEObject;
-        T result = caseContracts(contracts);
-        if (result == null) result = caseSpecSection(contracts);
+        Flow flow = (Flow)theEObject;
+        T result = caseFlow(flow);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ACLPackage.ACL_CONTRACT:
+      case ACLPackage.CONTRACT:
       {
-        AclContract aclContract = (AclContract)theEObject;
-        T result = caseAclContract(aclContract);
-        if (result == null) result = caseContract(aclContract);
+        Contract contract = (Contract)theEObject;
+        T result = caseContract(contract);
+        if (result == null) result = caseSpecSection(contract);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ACLPackage.SPEC_STATEMENT:
+      {
+        SpecStatement specStatement = (SpecStatement)theEObject;
+        T result = caseSpecStatement(specStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ACLPackage.EXPR:
+      {
+        Expr expr = (Expr)theEObject;
+        T result = caseExpr(expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -150,6 +163,46 @@ public class ACLSwitch<T> extends Switch<T>
         T result = caseHyperperiodComputationalModel(hyperperiodComputationalModel);
         if (result == null) result = caseComputationalModel(hyperperiodComputationalModel);
         if (result == null) result = caseSpecSection(hyperperiodComputationalModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ACLPackage.ASSUME_STATEMENT:
+      {
+        AssumeStatement assumeStatement = (AssumeStatement)theEObject;
+        T result = caseAssumeStatement(assumeStatement);
+        if (result == null) result = caseSpecStatement(assumeStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ACLPackage.GUARANTEE_STATEMENT:
+      {
+        GuaranteeStatement guaranteeStatement = (GuaranteeStatement)theEObject;
+        T result = caseGuaranteeStatement(guaranteeStatement);
+        if (result == null) result = caseSpecStatement(guaranteeStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ACLPackage.BINARY_EXPR:
+      {
+        BinaryExpr binaryExpr = (BinaryExpr)theEObject;
+        T result = caseBinaryExpr(binaryExpr);
+        if (result == null) result = caseExpr(binaryExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ACLPackage.UNARY_EXPR:
+      {
+        UnaryExpr unaryExpr = (UnaryExpr)theEObject;
+        T result = caseUnaryExpr(unaryExpr);
+        if (result == null) result = caseExpr(unaryExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ACLPackage.ID_EXPR:
+      {
+        IdExpr idExpr = (IdExpr)theEObject;
+        T result = caseIdExpr(idExpr);
+        if (result == null) result = caseExpr(idExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -174,17 +227,17 @@ public class ACLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Contract</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Acl Contract</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Contract</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Acl Contract</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseContract(Contract object)
+  public T caseAclContract(AclContract object)
   {
     return null;
   }
@@ -238,33 +291,65 @@ public class ACLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Contracts</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Flow</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Contracts</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Flow</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseContracts(Contracts object)
+  public T caseFlow(Flow object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Acl Contract</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Contract</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Acl Contract</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Contract</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAclContract(AclContract object)
+  public T caseContract(Contract object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Spec Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Spec Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSpecStatement(SpecStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpr(Expr object)
   {
     return null;
   }
@@ -297,6 +382,86 @@ public class ACLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseHyperperiodComputationalModel(HyperperiodComputationalModel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Assume Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Assume Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAssumeStatement(AssumeStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Guarantee Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Guarantee Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGuaranteeStatement(GuaranteeStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Binary Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Binary Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBinaryExpr(BinaryExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unary Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unary Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnaryExpr(UnaryExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Id Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Id Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIdExpr(IdExpr object)
   {
     return null;
   }

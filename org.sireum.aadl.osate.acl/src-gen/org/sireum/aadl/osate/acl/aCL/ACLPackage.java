@@ -142,23 +142,32 @@ public interface ACLPackage extends EPackage
   int ACL_SUBCLAUSE_FEATURE_COUNT = Aadl2Package.ANNEX_SUBCLAUSE_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.ContractImpl <em>Contract</em>}' class.
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.AclContractImpl <em>Acl Contract</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.sireum.aadl.osate.acl.aCL.impl.ContractImpl
-   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getContract()
+   * @see org.sireum.aadl.osate.acl.aCL.impl.AclContractImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getAclContract()
    * @generated
    */
-  int CONTRACT = 1;
+  int ACL_CONTRACT = 1;
 
   /**
-   * The number of structural features of the '<em>Contract</em>' class.
+   * The feature id for the '<em><b>Specs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTRACT_FEATURE_COUNT = 0;
+  int ACL_CONTRACT__SPECS = 0;
+
+  /**
+   * The number of structural features of the '<em>Acl Contract</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACL_CONTRACT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.SpecSectionImpl <em>Spec Section</em>}' class.
@@ -209,42 +218,78 @@ public interface ACLPackage extends EPackage
   int FLOWS = 4;
 
   /**
+   * The feature id for the '<em><b>Flows</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOWS__FLOWS = SPEC_SECTION_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Flows</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FLOWS_FEATURE_COUNT = SPEC_SECTION_FEATURE_COUNT + 0;
+  int FLOWS_FEATURE_COUNT = SPEC_SECTION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.ContractsImpl <em>Contracts</em>}' class.
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.FlowImpl <em>Flow</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.sireum.aadl.osate.acl.aCL.impl.ContractsImpl
-   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getContracts()
+   * @see org.sireum.aadl.osate.acl.aCL.impl.FlowImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getFlow()
    * @generated
    */
-  int CONTRACTS = 5;
+  int FLOW = 5;
 
   /**
-   * The number of structural features of the '<em>Contracts</em>' class.
+   * The feature id for the '<em><b>Flow Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTRACTS_FEATURE_COUNT = SPEC_SECTION_FEATURE_COUNT + 0;
+  int FLOW__FLOW_ID = 0;
 
   /**
-   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.AclContractImpl <em>Acl Contract</em>}' class.
+   * The feature id for the '<em><b>Src Ports</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.sireum.aadl.osate.acl.aCL.impl.AclContractImpl
-   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getAclContract()
+   * @generated
+   * @ordered
+   */
+  int FLOW__SRC_PORTS = 1;
+
+  /**
+   * The feature id for the '<em><b>Dst Ports</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOW__DST_PORTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Flow</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOW_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.ContractImpl <em>Contract</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ContractImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getContract()
    * @generated
    */
-  int ACL_CONTRACT = 6;
+  int CONTRACT = 6;
 
   /**
    * The feature id for the '<em><b>Specs</b></em>' containment reference list.
@@ -253,16 +298,54 @@ public interface ACLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACL_CONTRACT__SPECS = CONTRACT_FEATURE_COUNT + 0;
+  int CONTRACT__SPECS = SPEC_SECTION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Acl Contract</em>' class.
+   * The number of structural features of the '<em>Contract</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACL_CONTRACT_FEATURE_COUNT = CONTRACT_FEATURE_COUNT + 1;
+  int CONTRACT_FEATURE_COUNT = SPEC_SECTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.SpecStatementImpl <em>Spec Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.osate.acl.aCL.impl.SpecStatementImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getSpecStatement()
+   * @generated
+   */
+  int SPEC_STATEMENT = 7;
+
+  /**
+   * The number of structural features of the '<em>Spec Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPEC_STATEMENT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.ExprImpl <em>Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ExprImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getExpr()
+   * @generated
+   */
+  int EXPR = 8;
+
+  /**
+   * The number of structural features of the '<em>Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.PeriodicComputationalModelImpl <em>Periodic Computational Model</em>}' class.
@@ -272,7 +355,7 @@ public interface ACLPackage extends EPackage
    * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getPeriodicComputationalModel()
    * @generated
    */
-  int PERIODIC_COMPUTATIONAL_MODEL = 7;
+  int PERIODIC_COMPUTATIONAL_MODEL = 9;
 
   /**
    * The number of structural features of the '<em>Periodic Computational Model</em>' class.
@@ -291,16 +374,16 @@ public interface ACLPackage extends EPackage
    * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getHyperperiodComputationalModel()
    * @generated
    */
-  int HYPERPERIOD_COMPUTATIONAL_MODEL = 8;
+  int HYPERPERIOD_COMPUTATIONAL_MODEL = 10;
 
   /**
-   * The feature id for the '<em><b>Relationships</b></em>' attribute.
+   * The feature id for the '<em><b>Constraints</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HYPERPERIOD_COMPUTATIONAL_MODEL__RELATIONSHIPS = COMPUTATIONAL_MODEL_FEATURE_COUNT + 0;
+  int HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS = COMPUTATIONAL_MODEL_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Hyperperiod Computational Model</em>' class.
@@ -310,6 +393,209 @@ public interface ACLPackage extends EPackage
    * @ordered
    */
   int HYPERPERIOD_COMPUTATIONAL_MODEL_FEATURE_COUNT = COMPUTATIONAL_MODEL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.AssumeStatementImpl <em>Assume Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.osate.acl.aCL.impl.AssumeStatementImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getAssumeStatement()
+   * @generated
+   */
+  int ASSUME_STATEMENT = 11;
+
+  /**
+   * The feature id for the '<em><b>For Port</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT__FOR_PORT = SPEC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Assume Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT__ASSUME_TITLE = SPEC_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Pred</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT__PRED = SPEC_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Traces To</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT__TRACES_TO = SPEC_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Assume Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSUME_STATEMENT_FEATURE_COUNT = SPEC_STATEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.GuaranteeStatementImpl <em>Guarantee Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.osate.acl.aCL.impl.GuaranteeStatementImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getGuaranteeStatement()
+   * @generated
+   */
+  int GUARANTEE_STATEMENT = 12;
+
+  /**
+   * The feature id for the '<em><b>Guarantee Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUARANTEE_STATEMENT__GUARANTEE_TITLE = SPEC_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUARANTEE_STATEMENT__EXPR = SPEC_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Guarantee Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUARANTEE_STATEMENT_FEATURE_COUNT = SPEC_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.BinaryExprImpl <em>Binary Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.osate.acl.aCL.impl.BinaryExprImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getBinaryExpr()
+   * @generated
+   */
+  int BINARY_EXPR = 13;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPR__LEFT = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPR__RIGHT = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPR__OP = EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Binary Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.UnaryExprImpl <em>Unary Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.osate.acl.aCL.impl.UnaryExprImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getUnaryExpr()
+   * @generated
+   */
+  int UNARY_EXPR = 14;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR__OP = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR__EXPR = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Unary Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.sireum.aadl.osate.acl.aCL.impl.IdExprImpl <em>Id Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.sireum.aadl.osate.acl.aCL.impl.IdExprImpl
+   * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getIdExpr()
+   * @generated
+   */
+  int ID_EXPR = 15;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ID_EXPR__ID = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Id Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ID_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
 
 
   /**
@@ -334,14 +620,25 @@ public interface ACLPackage extends EPackage
   EReference getAclSubclause_Contract();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.Contract <em>Contract</em>}'.
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.AclContract <em>Acl Contract</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Contract</em>'.
-   * @see org.sireum.aadl.osate.acl.aCL.Contract
+   * @return the meta object for class '<em>Acl Contract</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.AclContract
    * @generated
    */
-  EClass getContract();
+  EClass getAclContract();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.osate.acl.aCL.AclContract#getSpecs <em>Specs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Specs</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.AclContract#getSpecs()
+   * @see #getAclContract()
+   * @generated
+   */
+  EReference getAclContract_Specs();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.SpecSection <em>Spec Section</em>}'.
@@ -374,35 +671,99 @@ public interface ACLPackage extends EPackage
   EClass getFlows();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.Contracts <em>Contracts</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.osate.acl.aCL.Flows#getFlows <em>Flows</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Contracts</em>'.
-   * @see org.sireum.aadl.osate.acl.aCL.Contracts
+   * @return the meta object for the containment reference list '<em>Flows</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.Flows#getFlows()
+   * @see #getFlows()
    * @generated
    */
-  EClass getContracts();
+  EReference getFlows_Flows();
 
   /**
-   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.AclContract <em>Acl Contract</em>}'.
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.Flow <em>Flow</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Acl Contract</em>'.
-   * @see org.sireum.aadl.osate.acl.aCL.AclContract
+   * @return the meta object for class '<em>Flow</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.Flow
    * @generated
    */
-  EClass getAclContract();
+  EClass getFlow();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.osate.acl.aCL.AclContract#getSpecs <em>Specs</em>}'.
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.osate.acl.aCL.Flow#getFlowId <em>Flow Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Flow Id</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.Flow#getFlowId()
+   * @see #getFlow()
+   * @generated
+   */
+  EAttribute getFlow_FlowId();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.sireum.aadl.osate.acl.aCL.Flow#getSrcPorts <em>Src Ports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Src Ports</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.Flow#getSrcPorts()
+   * @see #getFlow()
+   * @generated
+   */
+  EReference getFlow_SrcPorts();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.sireum.aadl.osate.acl.aCL.Flow#getDstPorts <em>Dst Ports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Dst Ports</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.Flow#getDstPorts()
+   * @see #getFlow()
+   * @generated
+   */
+  EReference getFlow_DstPorts();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.Contract <em>Contract</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Contract</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.Contract
+   * @generated
+   */
+  EClass getContract();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.sireum.aadl.osate.acl.aCL.Contract#getSpecs <em>Specs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Specs</em>'.
-   * @see org.sireum.aadl.osate.acl.aCL.AclContract#getSpecs()
-   * @see #getAclContract()
+   * @see org.sireum.aadl.osate.acl.aCL.Contract#getSpecs()
+   * @see #getContract()
    * @generated
    */
-  EReference getAclContract_Specs();
+  EReference getContract_Specs();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.SpecStatement <em>Spec Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Spec Statement</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.SpecStatement
+   * @generated
+   */
+  EClass getSpecStatement();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.Expr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.Expr
+   * @generated
+   */
+  EClass getExpr();
 
   /**
    * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.PeriodicComputationalModel <em>Periodic Computational Model</em>}'.
@@ -425,15 +786,197 @@ public interface ACLPackage extends EPackage
   EClass getHyperperiodComputationalModel();
 
   /**
-   * Returns the meta object for the attribute '{@link org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel#getRelationships <em>Relationships</em>}'.
+   * Returns the meta object for the reference list '{@link org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel#getConstraints <em>Constraints</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Relationships</em>'.
-   * @see org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel#getRelationships()
+   * @return the meta object for the reference list '<em>Constraints</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel#getConstraints()
    * @see #getHyperperiodComputationalModel()
    * @generated
    */
-  EAttribute getHyperperiodComputationalModel_Relationships();
+  EReference getHyperperiodComputationalModel_Constraints();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.AssumeStatement <em>Assume Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Assume Statement</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.AssumeStatement
+   * @generated
+   */
+  EClass getAssumeStatement();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.osate.acl.aCL.AssumeStatement#getForPort <em>For Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>For Port</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.AssumeStatement#getForPort()
+   * @see #getAssumeStatement()
+   * @generated
+   */
+  EReference getAssumeStatement_ForPort();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.osate.acl.aCL.AssumeStatement#getAssumeTitle <em>Assume Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Assume Title</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.AssumeStatement#getAssumeTitle()
+   * @see #getAssumeStatement()
+   * @generated
+   */
+  EAttribute getAssumeStatement_AssumeTitle();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.osate.acl.aCL.AssumeStatement#getPred <em>Pred</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pred</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.AssumeStatement#getPred()
+   * @see #getAssumeStatement()
+   * @generated
+   */
+  EAttribute getAssumeStatement_Pred();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.osate.acl.aCL.AssumeStatement#getTracesTo <em>Traces To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Traces To</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.AssumeStatement#getTracesTo()
+   * @see #getAssumeStatement()
+   * @generated
+   */
+  EAttribute getAssumeStatement_TracesTo();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.GuaranteeStatement <em>Guarantee Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Guarantee Statement</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.GuaranteeStatement
+   * @generated
+   */
+  EClass getGuaranteeStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.osate.acl.aCL.GuaranteeStatement#getGuaranteeTitle <em>Guarantee Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Guarantee Title</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.GuaranteeStatement#getGuaranteeTitle()
+   * @see #getGuaranteeStatement()
+   * @generated
+   */
+  EAttribute getGuaranteeStatement_GuaranteeTitle();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.osate.acl.aCL.GuaranteeStatement#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.GuaranteeStatement#getExpr()
+   * @see #getGuaranteeStatement()
+   * @generated
+   */
+  EReference getGuaranteeStatement_Expr();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.BinaryExpr <em>Binary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Binary Expr</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.BinaryExpr
+   * @generated
+   */
+  EClass getBinaryExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.osate.acl.aCL.BinaryExpr#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.BinaryExpr#getLeft()
+   * @see #getBinaryExpr()
+   * @generated
+   */
+  EReference getBinaryExpr_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.osate.acl.aCL.BinaryExpr#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.BinaryExpr#getRight()
+   * @see #getBinaryExpr()
+   * @generated
+   */
+  EReference getBinaryExpr_Right();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.osate.acl.aCL.BinaryExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.BinaryExpr#getOp()
+   * @see #getBinaryExpr()
+   * @generated
+   */
+  EAttribute getBinaryExpr_Op();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.UnaryExpr <em>Unary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unary Expr</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.UnaryExpr
+   * @generated
+   */
+  EClass getUnaryExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.sireum.aadl.osate.acl.aCL.UnaryExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.UnaryExpr#getOp()
+   * @see #getUnaryExpr()
+   * @generated
+   */
+  EAttribute getUnaryExpr_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.sireum.aadl.osate.acl.aCL.UnaryExpr#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.UnaryExpr#getExpr()
+   * @see #getUnaryExpr()
+   * @generated
+   */
+  EReference getUnaryExpr_Expr();
+
+  /**
+   * Returns the meta object for class '{@link org.sireum.aadl.osate.acl.aCL.IdExpr <em>Id Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Id Expr</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.IdExpr
+   * @generated
+   */
+  EClass getIdExpr();
+
+  /**
+   * Returns the meta object for the reference '{@link org.sireum.aadl.osate.acl.aCL.IdExpr#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Id</em>'.
+   * @see org.sireum.aadl.osate.acl.aCL.IdExpr#getId()
+   * @see #getIdExpr()
+   * @generated
+   */
+  EReference getIdExpr_Id();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -477,14 +1020,22 @@ public interface ACLPackage extends EPackage
     EReference ACL_SUBCLAUSE__CONTRACT = eINSTANCE.getAclSubclause_Contract();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.ContractImpl <em>Contract</em>}' class.
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.AclContractImpl <em>Acl Contract</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.sireum.aadl.osate.acl.aCL.impl.ContractImpl
-     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getContract()
+     * @see org.sireum.aadl.osate.acl.aCL.impl.AclContractImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getAclContract()
      * @generated
      */
-    EClass CONTRACT = eINSTANCE.getContract();
+    EClass ACL_CONTRACT = eINSTANCE.getAclContract();
+
+    /**
+     * The meta object literal for the '<em><b>Specs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACL_CONTRACT__SPECS = eINSTANCE.getAclContract_Specs();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.SpecSectionImpl <em>Spec Section</em>}' class.
@@ -517,24 +1068,56 @@ public interface ACLPackage extends EPackage
     EClass FLOWS = eINSTANCE.getFlows();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.ContractsImpl <em>Contracts</em>}' class.
+     * The meta object literal for the '<em><b>Flows</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.sireum.aadl.osate.acl.aCL.impl.ContractsImpl
-     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getContracts()
      * @generated
      */
-    EClass CONTRACTS = eINSTANCE.getContracts();
+    EReference FLOWS__FLOWS = eINSTANCE.getFlows_Flows();
 
     /**
-     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.AclContractImpl <em>Acl Contract</em>}' class.
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.FlowImpl <em>Flow</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.sireum.aadl.osate.acl.aCL.impl.AclContractImpl
-     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getAclContract()
+     * @see org.sireum.aadl.osate.acl.aCL.impl.FlowImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getFlow()
      * @generated
      */
-    EClass ACL_CONTRACT = eINSTANCE.getAclContract();
+    EClass FLOW = eINSTANCE.getFlow();
+
+    /**
+     * The meta object literal for the '<em><b>Flow Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FLOW__FLOW_ID = eINSTANCE.getFlow_FlowId();
+
+    /**
+     * The meta object literal for the '<em><b>Src Ports</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FLOW__SRC_PORTS = eINSTANCE.getFlow_SrcPorts();
+
+    /**
+     * The meta object literal for the '<em><b>Dst Ports</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FLOW__DST_PORTS = eINSTANCE.getFlow_DstPorts();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.ContractImpl <em>Contract</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ContractImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getContract()
+     * @generated
+     */
+    EClass CONTRACT = eINSTANCE.getContract();
 
     /**
      * The meta object literal for the '<em><b>Specs</b></em>' containment reference list feature.
@@ -542,7 +1125,27 @@ public interface ACLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ACL_CONTRACT__SPECS = eINSTANCE.getAclContract_Specs();
+    EReference CONTRACT__SPECS = eINSTANCE.getContract_Specs();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.SpecStatementImpl <em>Spec Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.osate.acl.aCL.impl.SpecStatementImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getSpecStatement()
+     * @generated
+     */
+    EClass SPEC_STATEMENT = eINSTANCE.getSpecStatement();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.ExprImpl <em>Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ExprImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getExpr()
+     * @generated
+     */
+    EClass EXPR = eINSTANCE.getExpr();
 
     /**
      * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.PeriodicComputationalModelImpl <em>Periodic Computational Model</em>}' class.
@@ -565,12 +1168,158 @@ public interface ACLPackage extends EPackage
     EClass HYPERPERIOD_COMPUTATIONAL_MODEL = eINSTANCE.getHyperperiodComputationalModel();
 
     /**
-     * The meta object literal for the '<em><b>Relationships</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Constraints</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute HYPERPERIOD_COMPUTATIONAL_MODEL__RELATIONSHIPS = eINSTANCE.getHyperperiodComputationalModel_Relationships();
+    EReference HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS = eINSTANCE.getHyperperiodComputationalModel_Constraints();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.AssumeStatementImpl <em>Assume Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.osate.acl.aCL.impl.AssumeStatementImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getAssumeStatement()
+     * @generated
+     */
+    EClass ASSUME_STATEMENT = eINSTANCE.getAssumeStatement();
+
+    /**
+     * The meta object literal for the '<em><b>For Port</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSUME_STATEMENT__FOR_PORT = eINSTANCE.getAssumeStatement_ForPort();
+
+    /**
+     * The meta object literal for the '<em><b>Assume Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSUME_STATEMENT__ASSUME_TITLE = eINSTANCE.getAssumeStatement_AssumeTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Pred</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSUME_STATEMENT__PRED = eINSTANCE.getAssumeStatement_Pred();
+
+    /**
+     * The meta object literal for the '<em><b>Traces To</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSUME_STATEMENT__TRACES_TO = eINSTANCE.getAssumeStatement_TracesTo();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.GuaranteeStatementImpl <em>Guarantee Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.osate.acl.aCL.impl.GuaranteeStatementImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getGuaranteeStatement()
+     * @generated
+     */
+    EClass GUARANTEE_STATEMENT = eINSTANCE.getGuaranteeStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Guarantee Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GUARANTEE_STATEMENT__GUARANTEE_TITLE = eINSTANCE.getGuaranteeStatement_GuaranteeTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GUARANTEE_STATEMENT__EXPR = eINSTANCE.getGuaranteeStatement_Expr();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.BinaryExprImpl <em>Binary Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.osate.acl.aCL.impl.BinaryExprImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getBinaryExpr()
+     * @generated
+     */
+    EClass BINARY_EXPR = eINSTANCE.getBinaryExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINARY_EXPR__LEFT = eINSTANCE.getBinaryExpr_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINARY_EXPR__RIGHT = eINSTANCE.getBinaryExpr_Right();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINARY_EXPR__OP = eINSTANCE.getBinaryExpr_Op();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.UnaryExprImpl <em>Unary Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.osate.acl.aCL.impl.UnaryExprImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getUnaryExpr()
+     * @generated
+     */
+    EClass UNARY_EXPR = eINSTANCE.getUnaryExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_EXPR__OP = eINSTANCE.getUnaryExpr_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_EXPR__EXPR = eINSTANCE.getUnaryExpr_Expr();
+
+    /**
+     * The meta object literal for the '{@link org.sireum.aadl.osate.acl.aCL.impl.IdExprImpl <em>Id Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.sireum.aadl.osate.acl.aCL.impl.IdExprImpl
+     * @see org.sireum.aadl.osate.acl.aCL.impl.ACLPackageImpl#getIdExpr()
+     * @generated
+     */
+    EClass ID_EXPR = eINSTANCE.getIdExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ID_EXPR__ID = eINSTANCE.getIdExpr_Id();
 
   }
 

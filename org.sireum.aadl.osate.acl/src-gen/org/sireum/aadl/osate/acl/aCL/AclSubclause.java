@@ -30,12 +30,12 @@ public interface AclSubclause extends EObject, AnnexSubclause
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Contract</em>' containment reference.
-   * @see #setContract(Contract)
+   * @see #setContract(AclContract)
    * @see org.sireum.aadl.osate.acl.aCL.ACLPackage#getAclSubclause_Contract()
    * @model containment="true"
    * @generated
    */
-  Contract getContract();
+  AclContract getContract();
 
   /**
    * Sets the value of the '{@link org.sireum.aadl.osate.acl.aCL.AclSubclause#getContract <em>Contract</em>}' containment reference.
@@ -45,6 +45,6 @@ public interface AclSubclause extends EObject, AnnexSubclause
    * @see #getContract()
    * @generated
    */
-  void setContract(Contract value);
+  void setContract(AclContract value);
 
 } // AclSubclause

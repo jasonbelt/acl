@@ -66,14 +66,21 @@ public class ACLFactoryImpl extends EFactoryImpl implements ACLFactory
     switch (eClass.getClassifierID())
     {
       case ACLPackage.ACL_SUBCLAUSE: return createAclSubclause();
-      case ACLPackage.CONTRACT: return createContract();
+      case ACLPackage.ACL_CONTRACT: return createAclContract();
       case ACLPackage.SPEC_SECTION: return createSpecSection();
       case ACLPackage.COMPUTATIONAL_MODEL: return createComputationalModel();
       case ACLPackage.FLOWS: return createFlows();
-      case ACLPackage.CONTRACTS: return createContracts();
-      case ACLPackage.ACL_CONTRACT: return createAclContract();
+      case ACLPackage.FLOW: return createFlow();
+      case ACLPackage.CONTRACT: return createContract();
+      case ACLPackage.SPEC_STATEMENT: return createSpecStatement();
+      case ACLPackage.EXPR: return createExpr();
       case ACLPackage.PERIODIC_COMPUTATIONAL_MODEL: return createPeriodicComputationalModel();
       case ACLPackage.HYPERPERIOD_COMPUTATIONAL_MODEL: return createHyperperiodComputationalModel();
+      case ACLPackage.ASSUME_STATEMENT: return createAssumeStatement();
+      case ACLPackage.GUARANTEE_STATEMENT: return createGuaranteeStatement();
+      case ACLPackage.BINARY_EXPR: return createBinaryExpr();
+      case ACLPackage.UNARY_EXPR: return createUnaryExpr();
+      case ACLPackage.ID_EXPR: return createIdExpr();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -97,10 +104,10 @@ public class ACLFactoryImpl extends EFactoryImpl implements ACLFactory
    * @generated
    */
   @Override
-  public Contract createContract()
+  public AclContract createAclContract()
   {
-    ContractImpl contract = new ContractImpl();
-    return contract;
+    AclContractImpl aclContract = new AclContractImpl();
+    return aclContract;
   }
 
   /**
@@ -145,10 +152,10 @@ public class ACLFactoryImpl extends EFactoryImpl implements ACLFactory
    * @generated
    */
   @Override
-  public Contracts createContracts()
+  public Flow createFlow()
   {
-    ContractsImpl contracts = new ContractsImpl();
-    return contracts;
+    FlowImpl flow = new FlowImpl();
+    return flow;
   }
 
   /**
@@ -157,10 +164,34 @@ public class ACLFactoryImpl extends EFactoryImpl implements ACLFactory
    * @generated
    */
   @Override
-  public AclContract createAclContract()
+  public Contract createContract()
   {
-    AclContractImpl aclContract = new AclContractImpl();
-    return aclContract;
+    ContractImpl contract = new ContractImpl();
+    return contract;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SpecStatement createSpecStatement()
+  {
+    SpecStatementImpl specStatement = new SpecStatementImpl();
+    return specStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expr createExpr()
+  {
+    ExprImpl expr = new ExprImpl();
+    return expr;
   }
 
   /**
@@ -185,6 +216,66 @@ public class ACLFactoryImpl extends EFactoryImpl implements ACLFactory
   {
     HyperperiodComputationalModelImpl hyperperiodComputationalModel = new HyperperiodComputationalModelImpl();
     return hyperperiodComputationalModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AssumeStatement createAssumeStatement()
+  {
+    AssumeStatementImpl assumeStatement = new AssumeStatementImpl();
+    return assumeStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GuaranteeStatement createGuaranteeStatement()
+  {
+    GuaranteeStatementImpl guaranteeStatement = new GuaranteeStatementImpl();
+    return guaranteeStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BinaryExpr createBinaryExpr()
+  {
+    BinaryExprImpl binaryExpr = new BinaryExprImpl();
+    return binaryExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UnaryExpr createUnaryExpr()
+  {
+    UnaryExprImpl unaryExpr = new UnaryExprImpl();
+    return unaryExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IdExpr createIdExpr()
+  {
+    IdExprImpl idExpr = new IdExprImpl();
+    return idExpr;
   }
 
   /**

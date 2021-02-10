@@ -17,13 +17,20 @@ import org.sireum.aadl.osate.acl.aCL.ACLFactory;
 import org.sireum.aadl.osate.acl.aCL.ACLPackage;
 import org.sireum.aadl.osate.acl.aCL.AclContract;
 import org.sireum.aadl.osate.acl.aCL.AclSubclause;
+import org.sireum.aadl.osate.acl.aCL.AssumeStatement;
+import org.sireum.aadl.osate.acl.aCL.BinaryExpr;
 import org.sireum.aadl.osate.acl.aCL.ComputationalModel;
 import org.sireum.aadl.osate.acl.aCL.Contract;
-import org.sireum.aadl.osate.acl.aCL.Contracts;
+import org.sireum.aadl.osate.acl.aCL.Expr;
+import org.sireum.aadl.osate.acl.aCL.Flow;
 import org.sireum.aadl.osate.acl.aCL.Flows;
+import org.sireum.aadl.osate.acl.aCL.GuaranteeStatement;
 import org.sireum.aadl.osate.acl.aCL.HyperperiodComputationalModel;
+import org.sireum.aadl.osate.acl.aCL.IdExpr;
 import org.sireum.aadl.osate.acl.aCL.PeriodicComputationalModel;
 import org.sireum.aadl.osate.acl.aCL.SpecSection;
+import org.sireum.aadl.osate.acl.aCL.SpecStatement;
+import org.sireum.aadl.osate.acl.aCL.UnaryExpr;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +52,7 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass contractEClass = null;
+  private EClass aclContractEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,14 +80,28 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass contractsEClass = null;
+  private EClass flowEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass aclContractEClass = null;
+  private EClass contractEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass specStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass exprEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,6 +116,41 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
    * @generated
    */
   private EClass hyperperiodComputationalModelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass assumeStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass guaranteeStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass binaryExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unaryExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass idExprEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -191,9 +247,20 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
    * @generated
    */
   @Override
-  public EClass getContract()
+  public EClass getAclContract()
   {
-    return contractEClass;
+    return aclContractEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAclContract_Specs()
+  {
+    return (EReference)aclContractEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -235,9 +302,9 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
    * @generated
    */
   @Override
-  public EClass getContracts()
+  public EReference getFlows_Flows()
   {
-    return contractsEClass;
+    return (EReference)flowsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -246,9 +313,9 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
    * @generated
    */
   @Override
-  public EClass getAclContract()
+  public EClass getFlow()
   {
-    return aclContractEClass;
+    return flowEClass;
   }
 
   /**
@@ -257,9 +324,75 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
    * @generated
    */
   @Override
-  public EReference getAclContract_Specs()
+  public EAttribute getFlow_FlowId()
   {
-    return (EReference)aclContractEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)flowEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFlow_SrcPorts()
+  {
+    return (EReference)flowEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFlow_DstPorts()
+  {
+    return (EReference)flowEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getContract()
+  {
+    return contractEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getContract_Specs()
+  {
+    return (EReference)contractEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSpecStatement()
+  {
+    return specStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExpr()
+  {
+    return exprEClass;
   }
 
   /**
@@ -290,9 +423,196 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
    * @generated
    */
   @Override
-  public EAttribute getHyperperiodComputationalModel_Relationships()
+  public EReference getHyperperiodComputationalModel_Constraints()
   {
-    return (EAttribute)hyperperiodComputationalModelEClass.getEStructuralFeatures().get(0);
+    return (EReference)hyperperiodComputationalModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAssumeStatement()
+  {
+    return assumeStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAssumeStatement_ForPort()
+  {
+    return (EReference)assumeStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAssumeStatement_AssumeTitle()
+  {
+    return (EAttribute)assumeStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAssumeStatement_Pred()
+  {
+    return (EAttribute)assumeStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAssumeStatement_TracesTo()
+  {
+    return (EAttribute)assumeStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getGuaranteeStatement()
+  {
+    return guaranteeStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getGuaranteeStatement_GuaranteeTitle()
+  {
+    return (EAttribute)guaranteeStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGuaranteeStatement_Expr()
+  {
+    return (EReference)guaranteeStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBinaryExpr()
+  {
+    return binaryExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryExpr_Left()
+  {
+    return (EReference)binaryExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBinaryExpr_Right()
+  {
+    return (EReference)binaryExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBinaryExpr_Op()
+  {
+    return (EAttribute)binaryExprEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUnaryExpr()
+  {
+    return unaryExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUnaryExpr_Op()
+  {
+    return (EAttribute)unaryExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUnaryExpr_Expr()
+  {
+    return (EReference)unaryExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIdExpr()
+  {
+    return idExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIdExpr_Id()
+  {
+    return (EReference)idExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -329,23 +649,54 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
     aclSubclauseEClass = createEClass(ACL_SUBCLAUSE);
     createEReference(aclSubclauseEClass, ACL_SUBCLAUSE__CONTRACT);
 
-    contractEClass = createEClass(CONTRACT);
+    aclContractEClass = createEClass(ACL_CONTRACT);
+    createEReference(aclContractEClass, ACL_CONTRACT__SPECS);
 
     specSectionEClass = createEClass(SPEC_SECTION);
 
     computationalModelEClass = createEClass(COMPUTATIONAL_MODEL);
 
     flowsEClass = createEClass(FLOWS);
+    createEReference(flowsEClass, FLOWS__FLOWS);
 
-    contractsEClass = createEClass(CONTRACTS);
+    flowEClass = createEClass(FLOW);
+    createEAttribute(flowEClass, FLOW__FLOW_ID);
+    createEReference(flowEClass, FLOW__SRC_PORTS);
+    createEReference(flowEClass, FLOW__DST_PORTS);
 
-    aclContractEClass = createEClass(ACL_CONTRACT);
-    createEReference(aclContractEClass, ACL_CONTRACT__SPECS);
+    contractEClass = createEClass(CONTRACT);
+    createEReference(contractEClass, CONTRACT__SPECS);
+
+    specStatementEClass = createEClass(SPEC_STATEMENT);
+
+    exprEClass = createEClass(EXPR);
 
     periodicComputationalModelEClass = createEClass(PERIODIC_COMPUTATIONAL_MODEL);
 
     hyperperiodComputationalModelEClass = createEClass(HYPERPERIOD_COMPUTATIONAL_MODEL);
-    createEAttribute(hyperperiodComputationalModelEClass, HYPERPERIOD_COMPUTATIONAL_MODEL__RELATIONSHIPS);
+    createEReference(hyperperiodComputationalModelEClass, HYPERPERIOD_COMPUTATIONAL_MODEL__CONSTRAINTS);
+
+    assumeStatementEClass = createEClass(ASSUME_STATEMENT);
+    createEReference(assumeStatementEClass, ASSUME_STATEMENT__FOR_PORT);
+    createEAttribute(assumeStatementEClass, ASSUME_STATEMENT__ASSUME_TITLE);
+    createEAttribute(assumeStatementEClass, ASSUME_STATEMENT__PRED);
+    createEAttribute(assumeStatementEClass, ASSUME_STATEMENT__TRACES_TO);
+
+    guaranteeStatementEClass = createEClass(GUARANTEE_STATEMENT);
+    createEAttribute(guaranteeStatementEClass, GUARANTEE_STATEMENT__GUARANTEE_TITLE);
+    createEReference(guaranteeStatementEClass, GUARANTEE_STATEMENT__EXPR);
+
+    binaryExprEClass = createEClass(BINARY_EXPR);
+    createEReference(binaryExprEClass, BINARY_EXPR__LEFT);
+    createEReference(binaryExprEClass, BINARY_EXPR__RIGHT);
+    createEAttribute(binaryExprEClass, BINARY_EXPR__OP);
+
+    unaryExprEClass = createEClass(UNARY_EXPR);
+    createEAttribute(unaryExprEClass, UNARY_EXPR__OP);
+    createEReference(unaryExprEClass, UNARY_EXPR__EXPR);
+
+    idExprEClass = createEClass(ID_EXPR);
+    createEReference(idExprEClass, ID_EXPR__ID);
   }
 
   /**
@@ -384,32 +735,67 @@ public class ACLPackageImpl extends EPackageImpl implements ACLPackage
     aclSubclauseEClass.getESuperTypes().add(theAadl2Package.getAnnexSubclause());
     computationalModelEClass.getESuperTypes().add(this.getSpecSection());
     flowsEClass.getESuperTypes().add(this.getSpecSection());
-    contractsEClass.getESuperTypes().add(this.getSpecSection());
-    aclContractEClass.getESuperTypes().add(this.getContract());
+    contractEClass.getESuperTypes().add(this.getSpecSection());
     periodicComputationalModelEClass.getESuperTypes().add(this.getComputationalModel());
     hyperperiodComputationalModelEClass.getESuperTypes().add(this.getComputationalModel());
+    assumeStatementEClass.getESuperTypes().add(this.getSpecStatement());
+    guaranteeStatementEClass.getESuperTypes().add(this.getSpecStatement());
+    binaryExprEClass.getESuperTypes().add(this.getExpr());
+    unaryExprEClass.getESuperTypes().add(this.getExpr());
+    idExprEClass.getESuperTypes().add(this.getExpr());
 
     // Initialize classes and features; add operations and parameters
     initEClass(aclSubclauseEClass, AclSubclause.class, "AclSubclause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAclSubclause_Contract(), this.getContract(), null, "contract", null, 0, 1, AclSubclause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAclSubclause_Contract(), this.getAclContract(), null, "contract", null, 0, 1, AclSubclause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(contractEClass, Contract.class, "Contract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(aclContractEClass, AclContract.class, "AclContract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAclContract_Specs(), this.getSpecSection(), null, "specs", null, 0, -1, AclContract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(specSectionEClass, SpecSection.class, "SpecSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(computationalModelEClass, ComputationalModel.class, "ComputationalModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(flowsEClass, Flows.class, "Flows", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFlows_Flows(), this.getFlow(), null, "flows", null, 0, -1, Flows.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(contractsEClass, Contracts.class, "Contracts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(flowEClass, Flow.class, "Flow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFlow_FlowId(), theEcorePackage.getEString(), "flowId", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFlow_SrcPorts(), theAadl2Package.getNamedElement(), null, "srcPorts", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFlow_DstPorts(), theAadl2Package.getNamedElement(), null, "dstPorts", null, 0, -1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(aclContractEClass, AclContract.class, "AclContract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAclContract_Specs(), this.getSpecSection(), null, "specs", null, 0, -1, AclContract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(contractEClass, Contract.class, "Contract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getContract_Specs(), this.getSpecStatement(), null, "specs", null, 0, -1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(specStatementEClass, SpecStatement.class, "SpecStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(periodicComputationalModelEClass, PeriodicComputationalModel.class, "PeriodicComputationalModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(hyperperiodComputationalModelEClass, HyperperiodComputationalModel.class, "HyperperiodComputationalModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getHyperperiodComputationalModel_Relationships(), theEcorePackage.getEString(), "relationships", null, 0, 1, HyperperiodComputationalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getHyperperiodComputationalModel_Constraints(), theAadl2Package.getNamedElement(), null, "constraints", null, 0, -1, HyperperiodComputationalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(assumeStatementEClass, AssumeStatement.class, "AssumeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAssumeStatement_ForPort(), theAadl2Package.getNamedElement(), null, "forPort", null, 0, 1, AssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssumeStatement_AssumeTitle(), theEcorePackage.getEString(), "assumeTitle", null, 0, 1, AssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssumeStatement_Pred(), theEcorePackage.getEString(), "pred", null, 0, 1, AssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssumeStatement_TracesTo(), theEcorePackage.getEString(), "tracesTo", null, 0, 1, AssumeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(guaranteeStatementEClass, GuaranteeStatement.class, "GuaranteeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGuaranteeStatement_GuaranteeTitle(), theEcorePackage.getEString(), "guaranteeTitle", null, 0, 1, GuaranteeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGuaranteeStatement_Expr(), this.getExpr(), null, "expr", null, 0, 1, GuaranteeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(binaryExprEClass, BinaryExpr.class, "BinaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBinaryExpr_Left(), this.getExpr(), null, "left", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinaryExpr_Right(), this.getExpr(), null, "right", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinaryExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unaryExprEClass, UnaryExpr.class, "UnaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnaryExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryExpr_Expr(), this.getExpr(), null, "expr", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(idExprEClass, IdExpr.class, "IdExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIdExpr_Id(), theAadl2Package.getNamedElement(), null, "id", null, 0, 1, IdExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

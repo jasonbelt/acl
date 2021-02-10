@@ -5,24 +5,26 @@ package org.sireum.aadl.osate.acl.aCL.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.sireum.aadl.osate.acl.aCL.ACLPackage;
-import org.sireum.aadl.osate.acl.aCL.Contracts;
+import org.sireum.aadl.osate.acl.aCL.Expr;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Contracts</b></em>'.
+ * An implementation of the model object '<em><b>Expr</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ContractsImpl extends SpecSectionImpl implements Contracts
+public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ContractsImpl()
+  protected ExprImpl()
   {
     super();
   }
@@ -35,7 +37,7 @@ public class ContractsImpl extends SpecSectionImpl implements Contracts
   @Override
   protected EClass eStaticClass()
   {
-    return ACLPackage.Literals.CONTRACTS;
+    return ACLPackage.Literals.EXPR;
   }
 
-} //ContractsImpl
+} //ExprImpl

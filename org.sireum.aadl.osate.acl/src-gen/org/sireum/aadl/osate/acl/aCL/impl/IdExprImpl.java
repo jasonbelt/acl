@@ -3,53 +3,50 @@
  */
 package org.sireum.aadl.osate.acl.aCL.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.osate.aadl2.NamedElement;
 
 import org.sireum.aadl.osate.acl.aCL.ACLPackage;
-import org.sireum.aadl.osate.acl.aCL.Contract;
-import org.sireum.aadl.osate.acl.aCL.SpecStatement;
+import org.sireum.aadl.osate.acl.aCL.IdExpr;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Contract</b></em>'.
+ * An implementation of the model object '<em><b>Id Expr</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.sireum.aadl.osate.acl.aCL.impl.ContractImpl#getSpecs <em>Specs</em>}</li>
+ *   <li>{@link org.sireum.aadl.osate.acl.aCL.impl.IdExprImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ContractImpl extends SpecSectionImpl implements Contract
+public class IdExprImpl extends ExprImpl implements IdExpr
 {
   /**
-   * The cached value of the '{@link #getSpecs() <em>Specs</em>}' containment reference list.
+   * The cached value of the '{@link #getId() <em>Id</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSpecs()
+   * @see #getId()
    * @generated
    * @ordered
    */
-  protected EList<SpecStatement> specs;
+  protected NamedElement id;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ContractImpl()
+  protected IdExprImpl()
   {
     super();
   }
@@ -62,7 +59,7 @@ public class ContractImpl extends SpecSectionImpl implements Contract
   @Override
   protected EClass eStaticClass()
   {
-    return ACLPackage.Literals.CONTRACT;
+    return ACLPackage.Literals.ID_EXPR;
   }
 
   /**
@@ -71,13 +68,29 @@ public class ContractImpl extends SpecSectionImpl implements Contract
    * @generated
    */
   @Override
-  public EList<SpecStatement> getSpecs()
+  public NamedElement getId()
   {
-    if (specs == null)
+    if (id != null && ((EObject)id).eIsProxy())
     {
-      specs = new EObjectContainmentEList<SpecStatement>(SpecStatement.class, this, ACLPackage.CONTRACT__SPECS);
+      InternalEObject oldId = (InternalEObject)id;
+      id = (NamedElement)eResolveProxy(oldId);
+      if (id != oldId)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ACLPackage.ID_EXPR__ID, oldId, id));
+      }
     }
-    return specs;
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NamedElement basicGetId()
+  {
+    return id;
   }
 
   /**
@@ -86,14 +99,12 @@ public class ContractImpl extends SpecSectionImpl implements Contract
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setId(NamedElement newId)
   {
-    switch (featureID)
-    {
-      case ACLPackage.CONTRACT__SPECS:
-        return ((InternalEList<?>)getSpecs()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    NamedElement oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ACLPackage.ID_EXPR__ID, oldId, id));
   }
 
   /**
@@ -106,8 +117,9 @@ public class ContractImpl extends SpecSectionImpl implements Contract
   {
     switch (featureID)
     {
-      case ACLPackage.CONTRACT__SPECS:
-        return getSpecs();
+      case ACLPackage.ID_EXPR__ID:
+        if (resolve) return getId();
+        return basicGetId();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,15 +129,13 @@ public class ContractImpl extends SpecSectionImpl implements Contract
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case ACLPackage.CONTRACT__SPECS:
-        getSpecs().clear();
-        getSpecs().addAll((Collection<? extends SpecStatement>)newValue);
+      case ACLPackage.ID_EXPR__ID:
+        setId((NamedElement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +151,8 @@ public class ContractImpl extends SpecSectionImpl implements Contract
   {
     switch (featureID)
     {
-      case ACLPackage.CONTRACT__SPECS:
-        getSpecs().clear();
+      case ACLPackage.ID_EXPR__ID:
+        setId((NamedElement)null);
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +168,10 @@ public class ContractImpl extends SpecSectionImpl implements Contract
   {
     switch (featureID)
     {
-      case ACLPackage.CONTRACT__SPECS:
-        return specs != null && !specs.isEmpty();
+      case ACLPackage.ID_EXPR__ID:
+        return id != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ContractImpl
+} //IdExprImpl
