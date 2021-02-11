@@ -7,4 +7,34 @@
 			class = "org.sireum.aadl.osate.acl.aCL.ACLPackage"
 			genModel = "model/generated/ACL.genmodel" />
 	</extension>
+ <extension
+       id="ACLParser"
+       name="ACLP"
+       point="org.osate.annexsupport.parser">
+    <parser
+          annexName="ACL"
+          class="org.sireum.aadl.osate.acl.parsing.ACLAnnexParser"
+          id="org.sireum.aadl.osate.acl.parser"
+          name="ACL Annex Parser">
+    </parser>
+ </extension>
+ <extension
+       id="ACLLinkingService"
+       point="org.osate.annexsupport.linkingservice">
+    <linkingservice
+          annexName="ACL"
+          class="org.sireum.aadl.osate.acl.parsing.ACLAnnexLinkingService"
+          id="org.sireum.aadl.osate.acl.linkingservice"
+          name="ACL Annex Linking Service">
+    </linkingservice>
+ </extension>
+ <extension
+       point="org.osate.annexsupport.unparser">
+    <unparser
+          annexName="ACL"
+          class="org.sireum.aadl.osate.acl.parsing.ACLAnnexUnparser"
+          id="org.sireum.aadl.osate.acl.unparser"
+          name="ACL Annex Unparser">
+    </unparser>
+ </extension>	
 </plugin>

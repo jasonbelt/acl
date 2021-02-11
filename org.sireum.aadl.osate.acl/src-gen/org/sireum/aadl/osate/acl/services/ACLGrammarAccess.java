@@ -359,8 +359,8 @@ public class ACLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprExprParserRuleCall_1_4_0 = (RuleCall)cExprAssignment_1_4.eContents().get(0);
 		
 		//SpecStatement:
-		//	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])? assumeTitle=STRING ':' pred=PREDICATE ('tracesTo'
-		//	'<' tracesTo=ID '>')?
+		//	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
+		//	assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
 		//	| {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -1142,8 +1142,8 @@ public class ACLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SpecStatement:
-	//	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])? assumeTitle=STRING ':' pred=PREDICATE ('tracesTo'
-	//	'<' tracesTo=ID '>')?
+	//	{AssumeStatement} 'assume' ('for' forPort=[aadl2::NamedElement])?
+	//	assumeTitle=STRING ':' pred=PREDICATE ('tracesTo' '<' tracesTo=ID '>')?
 	//	| {GuaranteeStatement} 'guarantee' guaranteeTitle=STRING ':' expr=Expr;
 	public SpecStatementElements getSpecStatementAccess() {
 		return pSpecStatement;

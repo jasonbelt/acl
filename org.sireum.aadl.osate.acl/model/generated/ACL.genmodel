@@ -65,6 +65,10 @@
     <genClasses ecoreClass="ACL.ecore#//IdExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ACL.ecore#//IdExpr/id"/>
     </genClasses>
+    <genClasses ecoreClass="ACL.ecore#//AclContractLibrary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ACL.ecore#//AclContractLibrary/contract"/>
+    </genClasses>
+    <genClasses ecoreClass="ACL.ecore#//AclLibrary"/>
     <genClasses ecoreClass="ACL.ecore#//Contracts">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ACL.ecore#//Contracts/contracts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ACL.ecore#//Contracts/id"/>

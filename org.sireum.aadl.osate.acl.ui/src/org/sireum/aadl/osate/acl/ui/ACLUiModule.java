@@ -4,6 +4,7 @@
 package org.sireum.aadl.osate.acl.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.sireum.aadl.osate.acl.ui.contentassist.antlr.AnnexAwareEntryPointFinder;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -12,5 +13,9 @@ public class ACLUiModule extends AbstractACLUiModule {
 
 	public ACLUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+
+	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.antlr.EntryPointFinder> bindEntryPointFinder() {
+		return AnnexAwareEntryPointFinder.class;
 	}
 }

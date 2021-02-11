@@ -3,9 +3,56 @@
  */
 package org.sireum.aadl.osate.acl;
 
+import org.eclipse.xtext.formatting2.regionaccess.TextRegionAccessBuilder;
+import org.eclipse.xtext.naming.IQualifiedNameConverter;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.IScopeProvider;
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.serializer.ISerializer;
+import org.osate.aadl2.modelsupport.scoping.EClassGlobalScopeProvider;
+import org.osate.xtext.aadl2.formatting2.regionaccess.Aadl2TextRegionAccessBuilder;
+import org.sireum.aadl.osate.acl.naming.ACLQualifiedNameConverter;
+import org.sireum.aadl.osate.acl.naming.ACLQualifiedNameProvider;
+import org.sireum.aadl.osate.acl.scoping.ACLImportedNamespaceAwareLocalScopeProvider;
+import org.sireum.aadl.osate.acl.serializer.ACLSerializer;
+
+import com.google.inject.Binder;
+import com.google.inject.name.Names;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class ACLRuntimeModule extends AbstractACLRuntimeModule {
+	@Override
+	public Class<? extends org.eclipse.xtext.naming.IQualifiedNameProvider> bindIQualifiedNameProvider() {
+		return ACLQualifiedNameProvider.class;
+	}
+
+	public Class<? extends IQualifiedNameConverter> bindIQualifiedNameConverter() {
+		return ACLQualifiedNameConverter.class;
+	}
+
+	// public Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {
+	// return ACLCrossReferenceSerializer.class;
+	// }
+
+	@Override
+	public Class<? extends ISerializer> bindISerializer() {
+		return ACLSerializer.class;
+	}
+
+	@Override
+	public void configureIScopeProviderDelegate(Binder binder) {
+		binder.bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
+				.to(ACLImportedNamespaceAwareLocalScopeProvider.class);
+	}
+
+	public Class<? extends TextRegionAccessBuilder> bindTextRegionAccessBuilder() {
+		return Aadl2TextRegionAccessBuilder.class;
+	}
+
+	@Override
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return EClassGlobalScopeProvider.class;
+	}
 }

@@ -6,18 +6,18 @@ package org.sireum.aadl.osate.acl.formatting2;
 import com.google.inject.Inject;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.osate.xtext.aadl2.properties.formatting2.PropertiesFormatter;
-import org.sireum.aadl.osate.acl.aCL.AclContract;
-import org.sireum.aadl.osate.acl.aCL.AclSubclause;
 import org.sireum.aadl.osate.acl.aCL.SpecSection;
 import org.sireum.aadl.osate.acl.services.ACLGrammarAccess;
+import org.sireum.aadl.osate.acl.aCL.AclContract
 
 class ACLFormatter extends PropertiesFormatter {
 	
 	@Inject extension ACLGrammarAccess
 
-	def dispatch void format(AclSubclause aclsubclause, extension IFormattableDocument document) {
+/*
+	def dispatch void format(AclContractLibrary acllibrary, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(aclsubclause.getContract(), document);
+		format(acllibrary.getContract(), document);
 	}
 
 	def dispatch void format(AclContract aclcontract, extension IFormattableDocument document) {
@@ -26,4 +26,6 @@ class ACLFormatter extends PropertiesFormatter {
 			format(specs, document);
 		}
 	}
+	* 
+	*/
 }

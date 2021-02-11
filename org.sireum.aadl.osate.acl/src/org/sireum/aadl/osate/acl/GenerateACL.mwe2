@@ -78,7 +78,7 @@ Workflow {
 		directory = "${runtimeProject}.ui/src-gen"
 	}
 
-	component = Generator {
+	component = Generator auto-inject {
 		pathRtProject = runtimeProject
 		pathUiProject = "${runtimeProject}.ui"
 		pathTestProject = "${runtimeProject}.tests"
@@ -92,7 +92,7 @@ Workflow {
 			fragment = grammarAccess.GrammarAccessFragment {}
 
 			// generates Java API for the generated EPackages 
-			fragment = ecore.EMFGeneratorFragment {
+			fragment = ecore.EMFGeneratorFragment auto-inject {
 			}
 
 //			// the serialization component
@@ -131,7 +131,9 @@ Workflow {
 //			 fragment = exporting.SimpleNamesFragment {}
 
 			// scoping and exporting API 
-			fragment = scoping.ImportNamespacesScopingFragment {}
+			fragment = scoping.ImportNamespacesScopingFragment {
+				generateXtendStub = true
+			}
 			fragment = exporting.QualifiedNamesFragment {}
 			fragment = builder.BuilderIntegrationFragment {}
 
@@ -143,7 +145,7 @@ Workflow {
 			
 			// formatter API 
 //			fragment = formatting.FormatterFragment {}
-			fragment = formatting2.Formatter2Fragment auto-inject {}
+			fragment = formatting2.Formatter2Fragment {}
 
 			// labeling API 
 			fragment = labeling.LabelProviderFragment {}
@@ -156,7 +158,7 @@ Workflow {
 			fragment = quickfix.QuickfixProviderFragment {}
 
 			// content assist API  
-			fragment = contentAssist.JavaBasedContentAssistFragment {}
+			fragment = contentAssist.ContentAssistFragment {}
 			
 			// rename refactoring  
 			fragment = refactoring.RefactorElementNameFragment {}

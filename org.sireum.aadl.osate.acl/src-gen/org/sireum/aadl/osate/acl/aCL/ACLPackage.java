@@ -41,7 +41,7 @@ public interface ACLPackage extends EPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  String eNS_URI = "http://www.sireum.org/aadl/osate/acl/ACL";
+  String eNS_URI = "http://www.sireum.org/aadl/osate/acl";
 
   /**
    * The package namespace name.

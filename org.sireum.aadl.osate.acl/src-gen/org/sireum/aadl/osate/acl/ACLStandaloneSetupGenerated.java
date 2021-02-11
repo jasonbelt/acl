@@ -30,8 +30,8 @@ public class ACLStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-	if (!EPackage.Registry.INSTANCE.containsKey("http://www.sireum.org/aadl/osate/acl/ACL")) {
-		EPackage.Registry.INSTANCE.put("http://www.sireum.org/aadl/osate/acl/ACL", org.sireum.aadl.osate.acl.aCL.ACLPackage.eINSTANCE);
+	if (!EPackage.Registry.INSTANCE.containsKey("http://www.sireum.org/aadl/osate/acl")) {
+		EPackage.Registry.INSTANCE.put("http://www.sireum.org/aadl/osate/acl", org.sireum.aadl.osate.acl.aCL.ACLPackage.eINSTANCE);
 	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);

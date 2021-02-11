@@ -5,7 +5,7 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://www.sireum.org/aadl/osate/acl/ACL" 
+       uri = "http://www.sireum.org/aadl/osate/acl" 
        class = "org.sireum.aadl.osate.acl.aCL.ACLPackage"
        genModel = "model/generated/ACL.genmodel" /> 
 	

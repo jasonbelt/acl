@@ -26,95 +26,93 @@ public class ACLParsingTest {
   private ParseHelper<AclSubclause> parseHelper;
   
   @Test
+  public void simplePeriodic() {
+    this.test("periodic");
+  }
+  
+  @Test
   public void loadPeriodic() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("periodic");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("flows ");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("flow1: a -fun-> d");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("flow2: a -fun-> e, f ");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("flow3: b, c -fun-> d");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("contracts");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("assume for portA \"everything\" : TODO_predicates tracesTo <some_id>");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("assume \"no \'for\'\" : TODO_predicates tracesTo <some_id>");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("assume \"no tracesTo\" : TODO_predicates");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("guarantee \"a further title\" : a or b and c implies d and c orelse e");
-      _builder.newLine();
-      final AclSubclause result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("periodic");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("flows ");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("flow1: a -fun-> d");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("flow2: a -fun-> e, f ");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("flow3: b, c -fun-> d");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("contracts");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("assume for portA \"everything\" : TODO_predicates tracesTo <some_id>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("assume \"no \'for\'\" : TODO_predicates tracesTo <some_id>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("assume \"no tracesTo\" : TODO_predicates");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("guarantee \"a further title\" : a or b and c implies d and c orelse e");
+    _builder.newLine();
+    this.test(_builder.toString());
   }
   
   @Test
   public void loadHyperperiod() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("hyperperiod ");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("with p1 < p2");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("flows ");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("flow1: a -fun-> d");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("flow2 : a -fun-> e, f ");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("flow3: b, c -fun-> d");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("contracts");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("guarantee \"a title\": a => b");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("assume for portA \"everything\" : TODO_predicates tracesTo <some_id>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("guarantee \"another title\" : a or b and c implies d");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("guarantee \"a further title\" : a or b and c implies d and c orelse e");
+    _builder.newLine();
+    this.test(_builder.toString());
+  }
+  
+  public void test(final String s) {
     try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("hyperperiod ");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("with p1 < p2");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("flows ");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("flow1: a -fun-> d");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("flow2 : a -fun-> e, f ");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("flow3: b, c -fun-> d");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("contracts");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("guarantee \"a title\": a => b");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("assume for portA \"everything\" : TODO_predicates tracesTo <some_id>");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("guarantee \"another title\" : a or b and c implies d");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("guarantee \"a further title\" : a or b and c implies d and c orelse e");
-      _builder.newLine();
-      final AclSubclause result = this.parseHelper.parse(_builder);
+      final AclSubclause result = this.parseHelper.parse(s);
       Assert.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Unexpected errors: ");
       String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+      _builder.append(_join);
+      Assert.assertTrue(_builder.toString(), errors.isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -17,10 +17,15 @@ import org.sireum.aadl.osate.acl.aCL.AclSubclause
 class ACLParsingTest {
 	@Inject
 	ParseHelper<AclSubclause> parseHelper
+
+	@Test
+	def void simplePeriodic() {
+		test("periodic")
+	}
 	
 	@Test
 	def void loadPeriodic() {
-		val result = parseHelper.parse('''
+		test('''
 		    periodic
 		    
 		    flows 
@@ -34,15 +39,11 @@ class ACLParsingTest {
 		    	assume "no tracesTo" : TODO_predicates
 		    	guarantee "a further title" : a or b and c implies d and c orelse e
 		''')
-		Assert.assertNotNull(result)
-		
-		val errors = result.eResource.errors
-		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 	}
 	
 		@Test
 	def void loadHyperperiod() {
-		val result = parseHelper.parse('''
+		test('''
 		    hyperperiod 
 		      with p1 < p2
 		    
@@ -57,9 +58,17 @@ class ACLParsingTest {
 		    	guarantee "another title" : a or b and c implies d
 		    	guarantee "a further title" : a or b and c implies d and c orelse e
 		''')
+	}
+	
+		
+	def void test(String s) {
+		val result = parseHelper.parse(s);
+
 		Assert.assertNotNull(result)
 		
 		val errors = result.eResource.errors
+	
 		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 	}
+	
 }
